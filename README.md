@@ -15,7 +15,7 @@ Some examples:
 python json_to_csv_converter.py user.json 'user_id,name,yelping_since'
 python json_to_csv_converter.py business.json 'business_id,name,categories'
 python json_to_csv_converter.py review.json 'business_id,user_id,stars,date'
-python json_to_csv_converter.py tip.json 'business_id,user_id,text,date'
+python json_to_csv_converter.py tip.json 'business_id,user_id,compliment_count,date'
 ```
 
 ---
