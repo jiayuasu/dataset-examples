@@ -1,3 +1,24 @@
+--
+## Convert JSON to CSV
+
+1. Install Python 2.7.
+2. Install SimpleJSON if necessary `pip install simplejson`. You may need `sudo`.
+3. Print column names `python print_column_names.py ~/Downloads/yelp_dataset/user.json`
+4. Convert JSON to CSV with specific columns
+	1. Print options `python json_to_csv_converter.py -h`
+	2. Print all columns `python json_to_csv_converter.py user.json '*'`
+	3. Print some columns `python json_to_csv_converter.py user.json 'user_id,name,yelping_since'`
+
+Some examples:
+
+```
+python json_to_csv_converter.py user.json 'user_id,name,yelping_since'
+python json_to_csv_converter.py business.json 'business_id,name,categories'
+python json_to_csv_converter.py review.json 'business_id,user_id,stars,date'
+python json_to_csv_converter.py tip.json 'business_id,user_id,text,date'
+```
+
+---
 [![Build Status](https://travis-ci.org/Yelp/dataset-examples.svg)](https://travis-ci.org/Yelp/dataset-examples)
 
 Yelp's Academic Dataset Examples

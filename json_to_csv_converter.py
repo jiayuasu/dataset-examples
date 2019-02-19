@@ -107,7 +107,7 @@ if __name__ == '__main__':
     """Convert a yelp dataset file from json to csv."""
 
     parser = argparse.ArgumentParser(
-            description='Convert Yelp Dataset Challenge data from JSON format to CSV.',
+            description='Convert Yelp Dataset Challenge data from JSON format to CSV. Modified by Jia Yu (jiayu2@asu.edu).',
             )
 
     parser.add_argument(
@@ -115,11 +115,20 @@ if __name__ == '__main__':
             type=str,
             help='The json file to convert.',
             )
+    parser.add_argument(
+            'columns',
+            type=str,
+            help='The column names to keep. E.g., \'a,b,c\'. Enter \'*\' to keep all',
+            )
 
     args = parser.parse_args()
 
     json_file = args.json_file
+    keptcolumns = args.columns.split(',')
     csv_file = '{0}.csv'.format(json_file.split('.json')[0])
 
     column_names = get_superset_of_column_names_from_file(json_file)
-    read_and_write_file(json_file, csv_file, column_names)
+    if keptcolumns[0] == '*' :
+        read_and_write_file(json_file, csv_file, column_names)
+    else:
+        read_and_write_file(json_file, csv_file, keptcolumns)
